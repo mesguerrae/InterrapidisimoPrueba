@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<add id="Interrapidisimo::top_level" title="Interrapidisimo" module="Interrapidisimo_MauricioEsguerra" sortOrder="50" resource="Magento_Backend::content"/>
+		<add id="Interrapidisimo_MauricioEsguerra::interrapidisimo_mauricioesguerra_citycost" title="Costos por ciudad" module="Interrapidisimo_MauricioEsguerra" sortOrder="9999" resource="Magento_Backend::content" parent="Interrapidisimo::top_level" action="interrapidisimo_mauricioesguerra/citycost/index"/>
+	</menu>
+</config>

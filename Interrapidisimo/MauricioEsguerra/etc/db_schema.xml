@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+	<table name="interrapidisimo_mauricioesguerra_citycost" resource="default" engine="innodb" comment="interrapidisimo_mauricioesguerra_citycost Table">
+		<column xsi:type="int" name="citycost_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Entity Id"/>
+		<constraint xsi:type="primary" referenceId="PRIMARY">
+			<column name="citycost_id"/>
+		</constraint>
+		<column name="city" nullable="false" xsi:type="text" comment="city"/>
+		<column name="price" nullable="false" xsi:type="float" comment="price"/>
+		<column name="active" nullable="false" xsi:type="boolean" comment="active"/>
+	</table>
+</schema>

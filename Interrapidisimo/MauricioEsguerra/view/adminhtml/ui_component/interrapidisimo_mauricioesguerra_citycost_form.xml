@@ -1,0 +1,109 @@
+<?xml version="1.0" ?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+	<argument name="data" xsi:type="array">
+		<item name="js_config" xsi:type="array">
+			<item name="provider" xsi:type="string">interrapidisimo_mauricioesguerra_citycost_form.citycost_form_data_source</item>
+		</item>
+		<item name="label" xsi:type="string" translate="true">General Information</item>
+		<item name="template" xsi:type="string">templates/form/collapsible</item>
+	</argument>
+	<settings>
+		<buttons>
+			<button name="back" class="Interrapidisimo\MauricioEsguerra\Block\Adminhtml\CityCost\Edit\BackButton"/>
+			<button name="delete" class="Interrapidisimo\MauricioEsguerra\Block\Adminhtml\CityCost\Edit\DeleteButton"/>
+			<button name="save" class="Interrapidisimo\MauricioEsguerra\Block\Adminhtml\CityCost\Edit\SaveButton"/>
+			<button name="save_and_continue" class="Interrapidisimo\MauricioEsguerra\Block\Adminhtml\CityCost\Edit\SaveAndContinueButton"/>
+		</buttons>
+		<namespace>interrapidisimo_mauricioesguerra_citycost_form</namespace>
+		<dataScope>data</dataScope>
+		<deps>
+			<dep>interrapidisimo_mauricioesguerra_citycost_form.citycost_form_data_source</dep>
+		</deps>
+	</settings>
+	<dataSource name="citycost_form_data_source">
+		<argument name="data" xsi:type="array">
+			<item name="js_config" xsi:type="array">
+				<item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+			</item>
+		</argument>
+		<settings>
+			<submitUrl path="*/*/save"/>
+		</settings>
+		<dataProvider name="citycost_form_data_source" class="Interrapidisimo\MauricioEsguerra\Model\CityCost\DataProvider">
+			<settings>
+				<requestFieldName>citycost_id</requestFieldName>
+				<primaryFieldName>citycost_id</primaryFieldName>
+			</settings>
+		</dataProvider>
+	</dataSource>
+	<fieldset name="general">
+		<settings>
+			<label>General</label>
+		</settings>
+		<field name="city" formElement="textarea" sortOrder="10">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">CityCost</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">city</label>
+				<dataScope>city</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">true</rule>
+				</validation>
+			</settings>
+		</field>
+		<field name="price" formElement="input" sortOrder="20">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">CityCost</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">price</label>
+				<dataScope>price</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">true</rule>
+				</validation>
+			</settings>
+		</field>
+		<field name="active" formElement="select" sortOrder="30">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">CityCost</item>
+				</item>
+			</argument>
+			<settings>
+				<!--dataType>text</dataType-->
+				
+				<filter>select</filter>
+				<dataType>text</dataType>
+				<label translate="true">active</label>
+				<dataScope>active</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">false</rule>
+				</validation>
+			</settings>
+			<formElements>
+                <select>
+                    <settings>
+                        <options>
+                            <option name="1" xsi:type="array">
+                                <item name="value" xsi:type="string">1</item>
+                                <item name="label" xsi:type="string">True</item>
+                            </option>
+                            <option name="2" xsi:type="array">
+                                <item name="value" xsi:type="string">0</item>
+                                <item name="label" xsi:type="string">False</item>
+                            </option>
+                        </options>
+                        <caption translate="true">-- Seleccione uno--</caption>
+                    </settings>
+                </select>
+            </formElements>
+		</field>
+	</fieldset>
+</form>
