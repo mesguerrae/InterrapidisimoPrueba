@@ -14,7 +14,10 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {},
+    "require": {
+        "php": "~7.4||~8.1",
+        "mercadopago/dx-php": "^3.0"
+    },
     "autoload": {
         "files": [
             "registration.php"

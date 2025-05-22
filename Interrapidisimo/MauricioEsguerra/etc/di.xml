@@ -16,4 +16,21 @@
 			</argument>
 		</arguments>
 	</type>
+
+    <!-- Configuration for MercadoPago Payment Method Facade -->
+    <type name="Magento\Payment\Model\CcGenericConfigProvider">
+        <arguments>
+            <argument name="methodCodes" xsi:type="array">
+                <item name="mercadopago_custom" xsi:type="string">mercadopago_custom</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Interrapidisimo\MauricioEsguerra\Block\Payment\MercadoPago\Form\Cc">
+        <arguments>
+            <argument name="config" xsi:type="object">Magento\Payment\Model\CcConfig</argument>
+        </arguments>
+    </type>
+
+    <!-- MercadoPago Lib preference -->
+    <preference for="MercadoPago\SDK" type="MercadoPago\SDK"/>
 </config>

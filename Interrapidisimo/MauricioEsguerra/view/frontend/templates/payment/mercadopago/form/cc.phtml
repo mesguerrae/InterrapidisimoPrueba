@@ -1,0 +1,110 @@
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<fieldset data-bind="attr: {class: 'fieldset payment items ccard ' + getCode(), id: 'payment_form_' + getCode()}">
+    <legend data-bind="i18n: 'Payment Information'" class="legend">
+        <span><!-- ko i18n: 'Payment Information'--><!-- /ko --></span>
+    </legend><br />
+
+    <div class="field type">
+        <div class="control">
+            <ul class="credit-card-types">
+                <!-- Logos can be added here if desired -->
+            </ul>
+        </div>
+    </div>
+
+    <div id="mercadopago-form-container">
+        <div class="field required">
+            <label data-bind="i18n: 'Cardholder Name'" for="mpCardholderName" class="label">
+                <span><!-- ko i18n: 'Cardholder Name'--><!-- /ko --></span>
+            </label>
+            <div class="control">
+                <input type="text" id="mpCardholderName" name="payment[mp_cardholder_name]"
+                       class="input-text"
+                       data-bind="attr: {title: $t('Cardholder Name')}, valueUpdate: 'keyup'" />
+            </div>
+        </div>
+        
+        <div class="field required">
+             <label data-bind="i18n: 'Card Number'" for="mpCardNumber" class="label">
+                <span><!-- ko i18n: 'Card Number'--><!-- /ko --></span>
+            </label>
+            <div class="control">
+                <div id="form-checkout__cardNumber-container" class="mp-input-container"></div>
+            </div>
+        </div>
+
+        <div class="field required">
+            <label data-bind="i18n: 'Expiration Date'" for="mpExpirationDate" class="label">
+                <span><!-- ko i18n: 'Expiration Date (MM/YY)'--><!-- /ko --></span>
+            </label>
+            <div class="control">
+                 <div id="form-checkout__expirationDate-container" class="mp-input-container"></div>
+            </div>
+        </div>
+
+        <div class="field required">
+             <label data-bind="i18n: 'Security Code'" for="mpSecurityCode" class="label">
+                <span><!-- ko i18n: 'Security Code'--><!-- /ko --></span>
+            </label>
+            <div class="control">
+                <div id="form-checkout__securityCode-container" class="mp-input-container"></div>
+            </div>
+        </div>
+        
+        <!-- Document Type and Number - MercadoPago often requires this, especially in LATAM -->
+        <div class="field required">
+            <label data-bind="i18n: 'Document Type'" for="mpDocType" class="label">
+                <span><!-- ko i18n: 'Document Type'--><!-- /ko --></span>
+            </label>
+            <div class="control">
+                <select id="mpDocType" name="payment[mp_doc_type]" class="select"
+                        data-bind="attr: {title: $t('Document Type')}, event: {change: onDocTypeChange}">
+                    <!-- Options will be populated by JS -->
+                </select>
+            </div>
+        </div>
+
+        <div class="field required">
+            <label data-bind="i18n: 'Document Number'" for="mpDocNumber" class="label">
+                <span><!-- ko i18n: 'Document Number'--><!-- /ko --></span>
+            </label>
+            <div class="control">
+                <input type="text" id="mpDocNumber" name="payment[mp_doc_number]"
+                       class="input-text"
+                       data-bind="attr: {title: $t('Document Number')}, valueUpdate: 'keyup'" />
+            </div>
+        </div>
+
+        <!-- Installments -->
+        <div class="field">
+            <label data-bind="i18n: 'Installments'" for="mpInstallments" class="label">
+                <span><!-- ko i18n: 'Installments'--><!-- /ko --></span>
+            </label>
+            <div class="control">
+                <select id="mpInstallments" name="payment[mp_installments]" class="select"
+                        data-bind="attr: {title: $t('Installments')}, event: {change: onInstallmentsChange}">
+                    <!-- Options will be populated by JS -->
+                </select>
+            </div>
+        </div>
+         <div id="mpInstallmentsIssuer" class="field" style="display: none;">
+            <label data-bind="i18n: 'Issuer'" for="mpIssuer" class="label">
+                <span><!-- ko i18n: 'Issuer'--><!-- /ko --></span>
+            </label>
+            <div class="control">
+                <select id="mpIssuer" name="payment[mp_issuer_id]" class="select"
+                        data-bind="attr: {title: $t('Issuer')}, event: {change: onIssuerChange}">
+                    <!-- Options will be populated by JS -->
+                </select>
+            </div>
+        </div>
+
+
+        <div id="mercadopago-error-message" style="color: red; margin-top: 10px;"></div>
+    </div>
+</fieldset>
